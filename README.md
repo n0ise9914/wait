@@ -1,7 +1,7 @@
 ![alt tag](https://raw.githubusercontent.com/n0ise9914/wait/master/screenshot/states.png)
 # Wait
 #### Tired of making loadings, no-network warnings and working progresses for different parts of your app?<br/>
-#### Using wait you create this layouts once, then use them anywhere of your app via waitLayout.
+#### Using wait you create these layouts once, then use them anywhere of your app via waitLayout.
 #Setup
 Add wait to your build.gradle dependencies.
 ```gradle

@@ -4,7 +4,6 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--<item name="wt_working_progress_color">#ffa201</item>-->
         <!--<item name="wt_loading_progress_color">#ffdd00</item>-->
-        <!--<item name="wt_retry_button_color">#ffdd00</item>-->
         <!--<item name="wt_background_color">#ffdd00</item>-->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
