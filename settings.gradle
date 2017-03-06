@@ -1,2 +1,2 @@
-include ':demo', ':library'
+include ':demo', ':wait'
 
