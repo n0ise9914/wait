@@ -44,8 +44,8 @@ waitLayout.setOnConnectedListener(new OnConnectedListener() {
 ```   
    
 # Customization
-#### you can override loading, no-network and working layouts with your owns,<br/>
-#### just by putting the code below inside [Application](https://developer.android.com/reference/android/app/Application.html) class instance of your app.
+you can override loading, no-network and working layouts with your owns,<br/>
+just by putting the code below inside [Application](https://developer.android.com/reference/android/app/Application.html) class instance of your app.
 ```java
 
 final Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Roboto.ttf");
@@ -67,7 +67,6 @@ Wait.setConfiguration(config);
 waitLayout.setLoadingView(R.layout.custom_loading);
 ```
 #### Note: for custom retry layouts, i suggest you to use @+id/retry_button for your retry button, otherwise you should handle network events yourself.
-
 ## Customizing appearance
 put lines below inside AppTheme in styles.xml.
 ```xml
@@ -75,3 +74,16 @@ put lines below inside AppTheme in styles.xml.
 <item name="wt_loading_progress_color">#ffdd00</item>
 <item name="wt_background_color">#ffdd00</item>
 ```
+# Network lose handeling
+theory: we have three fragments insdie a viewPager on our activity, we open up the app and see three retry layouts<br/>
+now ater clicking retry button connection established, here wait can tell your another fragments to get refreshed.<br/>
+put the code below inside your fragments, it well be automatically triggered when connection establishes.
+```java
+Wait.addOnConnectedListeners(new OnConnectedListener() {
+    @Override
+    public void OnConnected() {
+	loadData();
+    }
+});
+```
+#### Note: dont forget to call Wait.refresh() in onDestory of your activity (otherwise you'll run into trouble).
