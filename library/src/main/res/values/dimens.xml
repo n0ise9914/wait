@@ -1,0 +1,6 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="button_radius">2dp</dimen>
+    <dimen name="button_padding">5dp</dimen>
+    <dimen name="button_text_size">14dp</dimen>
+</resources>

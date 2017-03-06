@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="@color/blue_ripple">
+    <item
+            android:bottom="@dimen/button_padding"
+            android:top="@dimen/button_padding"
+            android:left="@dimen/button_padding"
+            android:right="@dimen/button_padding"
+            android:drawable="@drawable/button_blue_normal"/>
+</ripple>

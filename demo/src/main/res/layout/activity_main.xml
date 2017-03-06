@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.n0ize.demo.MainActivity">
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:onClick="test"
+                app:srcCompat="@drawable/ic_atom"
+                android:id="@+id/imageView"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="140dp"
+                android:layout_height="140dp"/>
+    </RelativeLayout>
+
+    <com.n0ize.wait.WaitLayout
+            android:id="@+id/wait_layout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_above="@+id/btns"
+            android:layout_alignParentTop="true"/>
+
+    <LinearLayout
+            android:id="@+id/btns"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <Button
+                android:theme="@style/AppTheme.Button.Blue"
+                android:onClick="none"
+                android:text="none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        <Button
+                android:theme="@style/AppTheme.Button.Blue"
+                android:onClick="loading"
+                android:text="loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        <Button
+                android:theme="@style/AppTheme.Button.Blue"
+                android:onClick="working"
+                android:text="working"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        <Button
+                android:theme="@style/AppTheme.Button.Blue"
+                android:onClick="retry"
+                android:text="retry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+    </LinearLayout>
+
+</RelativeLayout>
