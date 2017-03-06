@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+
+        minSdkVersion 9
+        targetSdkVersion 25
+        versionCode 1
+        versionName "0.0.1"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:multidex:1.0.1'
+}
+
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'wait'
+
+    publishedGroupId = 'com.n0ize'
+    libraryName = 'Wait'
+    artifact = 'wait'
+
+    libraryDescription = 'Useful android library to simplify handling loading, no network and working sates anywhere in app.'
+
+    siteUrl = 'https://github.com/n0ise9914/Wait'
+    gitUrl = 'https://github.com/n0ise9914/Wait.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'n0ise9914'
+    developerName = 'Arzhang Mosaffa'
+    developerEmail = 'n0ise9914@live.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

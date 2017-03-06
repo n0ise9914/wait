@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="AppTheme.Button.Blue" parent="Base.Widget.AppCompat.Button">
+        <item name="android:buttonStyle">@style/AppTheme.Button.Blue.Style</item>
+    </style>
+
+    <style name="AppTheme.Button.Blue.Style">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:background">@drawable/button_blue</item>
+    </style>
+
+
+</resources>

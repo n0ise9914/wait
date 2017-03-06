@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="wt_loading_progress_color"/>
+    <attr name="wt_working_progress_color"/>
+    <attr name="wt_background_color"/>
+    <attr name="wt_retry_button_color"/>
+</resources>
