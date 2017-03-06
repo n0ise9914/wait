@@ -7,3 +7,11 @@
 /build
 /captures
 .externalNativeBuild
+.idea
+*/target
+target
+.classpath
+.project
+.settings
+demo/libs/
+library/libs/
