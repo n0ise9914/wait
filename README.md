@@ -28,6 +28,9 @@ waitLayout.setState(State.LOADING);
 //hide loading
 waitLayout.setState(State.NOTE);
 
+//show nothing to show view
+waitLayout.setState(State.EMPTY);
+
 //show retry layout
 waitLayout.setState(State.RETRY);
 

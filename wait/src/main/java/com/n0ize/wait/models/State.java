@@ -5,6 +5,7 @@ package com.n0ize.wait.models;
  */
 public enum State {
     NONE,
+    EMPTY,
     LOADING,
     WORKING,
     RETRY

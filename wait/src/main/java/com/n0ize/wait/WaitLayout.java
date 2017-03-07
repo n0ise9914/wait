@@ -28,10 +28,11 @@ public class WaitLayout extends RelativeLayout {
     //region -properties
     private Context context;
     private ViewGroup container;
+    private View emptyLayout;
     private View waitLayout;
     private View loadingLayout;
     private View retryLayout;
-    private TextView retryMessage;
+    private TextView retryMessage, emptyMessage;
     private View workingLayout;
     private ProgressBar loadingProgressBar, workingProgressBar;
     private Button retryButton;
@@ -77,25 +78,17 @@ public class WaitLayout extends RelativeLayout {
     //it will use default view resources if could'nt find any valid view
     private void setupViews() {
         LayoutInflater inflater = LayoutInflater.from(context);
+        emptyLayout = inflater.inflate(Wait.getConfiguration().getEmptyLayout(), null, false);
         loadingLayout = inflater.inflate(Wait.getConfiguration().getLoadingViewRes(), null, false);
         retryLayout = inflater.inflate(Wait.getConfiguration().getRetryViewRes(), null, false);
         workingLayout = inflater.inflate(Wait.getConfiguration().getWorkingViewRes(), null, false);
 
+        setupView(emptyLayout);
         setupView(loadingLayout);
         setupView(retryLayout);
         setupView(workingLayout);
 
         bindRetryButton();
-
-        //match views to parent
-        matchViewToParent(loadingLayout);
-        matchViewToParent(retryLayout);
-        matchViewToParent(workingLayout);
-
-        //add views to container
-        container.addView(loadingLayout);
-        container.addView(this.retryLayout);
-        container.addView(workingLayout);
     }
 
     private void bindRetryButton() {
@@ -130,9 +123,14 @@ public class WaitLayout extends RelativeLayout {
         if (backgroundColor != -1) {
             view.setBackgroundColor(backgroundColor);
         }
+        matchViewToParent(view);
+        //add views to container
+        container.addView(view);
     }
 
     private void bindViews() {
+        emptyLayout = findViewById(R.id.empty_layout);
+        emptyMessage = (TextView) emptyLayout.findViewById(R.id.empty_message);
         waitLayout = findViewById(R.id.wait_layout);
         loadingLayout = findViewById(R.id.loading_layout);
         retryLayout = findViewById(R.id.retry_layout);
@@ -146,6 +144,14 @@ public class WaitLayout extends RelativeLayout {
     private void initializeViews() {
         WaitConfiguration conf = Wait.getConfiguration();
         Typeface typeface = conf.getTypeFace();
+
+        //set empty message
+        if (emptyMessage != null) {
+            emptyMessage.setText(conf.getEmptyMessage());
+            emptyMessage.setVisibility(conf.isEmptyMessageVisible() ? VISIBLE : GONE);
+            if (typeface != null)
+                emptyMessage.setTypeface(typeface);
+        }
 
         //set retry message
         if (retryMessage != null) {
@@ -198,11 +204,14 @@ public class WaitLayout extends RelativeLayout {
         } else {
 
             waitLayout.setVisibility(VISIBLE);
+            emptyLayout.setVisibility(GONE);
             loadingLayout.setVisibility(GONE);
             retryLayout.setVisibility(GONE);
             workingLayout.setVisibility(GONE);
 
-            if (state == State.LOADING) {
+            if (state == State.EMPTY) {
+                emptyLayout.setVisibility(VISIBLE);
+            } else if (state == State.LOADING) {
                 loadingLayout.setVisibility(VISIBLE);
             } else if (state == State.RETRY) {
                 retryLayout.setVisibility(VISIBLE);
@@ -254,9 +263,18 @@ public class WaitLayout extends RelativeLayout {
         replaceView(workingLayout, view);
     }
 
+    public void setEmptyView(View view) {
+        if (view == null) {
+            Log.e(tag, "WaitLayout.setEmptyView: " + "i cant use this null view :)");
+            return;
+        }
+        setupView(view);
+        replaceView(emptyLayout, view);
+    }
+
     public void setRetryView(View view) {
         if (view == null) {
-            Log.e(tag, "WaitLayout.setStateView: " + "i cant use this null view :)");
+            Log.e(tag, "WaitLayout.setRetryView: " + "i cant use this null view :)");
             return;
         }
         setupView(view);

@@ -3,4 +3,5 @@
     <string name="no_network">Check your connection and try again.</string>
     <string name="retry">retry</string>
     <string name="image_holder">holder</string>
+    <string name="empty">Nothing to show.</string>
 </resources>

@@ -13,6 +13,7 @@ public class App extends Application {
 //        final Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/IRANSansMobile.ttf");
 //
 //        WaitConfiguration config = new WaitConfiguration.Builder()
+//                .setEmptyMessage("Nothing to show.")
 //                .setRetryMessage("Check your connection and try again.")
 //                .setRetryButtonText("retry")
 //                .setTypeFace(typeface)

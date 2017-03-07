@@ -48,6 +48,14 @@
 
         <Button
                 android:theme="@style/AppTheme.Button.Blue"
+                android:onClick="empty"
+                android:text="empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        <Button
+                android:theme="@style/AppTheme.Button.Blue"
                 android:onClick="loading"
                 android:text="loading"
                 android:layout_width="wrap_content"

@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void empty(View view) {
+        waitLayout.setState(State.EMPTY);
+    }
+
     public void loading(View view) {
         waitLayout.setState(State.LOADING);
     }
