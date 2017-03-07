@@ -74,8 +74,8 @@ put lines below inside AppTheme in styles.xml.
 <item name="wt_loading_progress_color">#ffdd00</item>
 <item name="wt_background_color">#ffdd00</item>
 ```
-# Network lose handeling
-theory: we have three fragments insdie a viewPager on our activity, we open up the app and see three retry layouts<br/>
+# Network loss handling
+theory: we have three fragments inside a viewPager on our activity, we open up the app and see three retry layouts<br/>
 now ater clicking retry button connection established, here wait can tell your another fragments to get refreshed.<br/>
 put the code below inside your fragments, it well be automatically triggered when connection establishes.
 ```java
